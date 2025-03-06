@@ -133,10 +133,10 @@ const Navbar = () => {
                 </a>
               ))}
               <a
-                href="./contact"
+                href="/Contact"
                 onClick={(e) => {
                   e.preventDefault();
-                  navigateToSection('contact');
+                  navigate('/Contact');
                 }}
                 className={`ml-4 px-5 py-2 rounded-full text-sm font-medium transition-all duration-300 ${
                   isDarkMode 
@@ -151,8 +151,6 @@ const Navbar = () => {
 
           {/* Right side icons and mobile menu button */}
           <div className="flex items-center">
-           
-
             {/* Mobile menu button */}
             <div className="md:hidden ml-4">
               <button
@@ -199,10 +197,10 @@ const Navbar = () => {
             </a>
           ))}
           <a
-            href="./contact"
+            href="/Contact"
             onClick={(e) => {
               e.preventDefault();
-              navigateToSection('contact');
+              navigate('/Contact');
             }}
             className={`block px-4 py-3 rounded-md text-base font-medium text-center mt-4 transition-all ${
               isDarkMode 
@@ -219,3 +217,5 @@ const Navbar = () => {
 };
 
 export default Navbar;
+
+
