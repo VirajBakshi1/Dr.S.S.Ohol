@@ -62,10 +62,10 @@ const ExperienceSection = () => {
   ];
 
   return (
-    <section className="py-20 bg-gradient-to-b from-gray-900 to-black text-white relative overflow-hidden">
+    <section className="py-24 bg-gradient-to-b from-gray-900 to-black text-white relative overflow-hidden">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
-        <h2 className="text-4xl font-bold mb-12 text-center">Professional Experience</h2>
-        <div className="h-1 w-24 bg-gradient-to-r from-blue-600 to-purple-600 mx-auto rounded-full"></div>
+        <h2 className="text-4xl font-bold mb-8 text-center">Professional Experience</h2>
+        <div className="h-1 w-24 bg-gradient-to-r mb-8 from-blue-600 to-purple-600 mx-auto rounded-full"></div>
         <div className="relative">
           {/* Timeline line */}
           <div className="absolute left-8 top-6 bottom-0 w-0.5 bg-blue-500"></div>
