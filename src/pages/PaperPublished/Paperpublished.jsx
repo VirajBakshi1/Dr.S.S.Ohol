@@ -1128,7 +1128,8 @@ const PapersPublished = () => {
                     <div className="inline-block px-2 py-1 bg-gray-700 text-gray-300 text-xs font-semibold rounded mb-3">
                       {pub.category.charAt(0).toUpperCase() + pub.category.slice(1)}
                     </div>
-                    <h2 className="text-lg font-bold text-white mb-2 line-clamp-2">{pub.title}</h2>
+                    {/* Removed the line-clamp-2 class to show full title */}
+                    <h2 className="text-lg font-bold text-white mb-2">{pub.title}</h2>
                     <p className="text-sm text-gray-300 mb-3 line-clamp-1">{pub.authors}</p>
                     
                     <div className="flex flex-wrap gap-2 mb-3">

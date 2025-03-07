@@ -76,8 +76,6 @@ const Navbar = () => {
     { name: 'Education', sectionId: 'education', isExternalPage: false },
     { name: 'Publication', sectionId: './PapersPublished', isExternalPage: true },
     { name: 'COEP Acivities', sectionId: './CoepActivities', isExternalPage: true },
-
- 
   ];
 
   return (
@@ -136,6 +134,7 @@ const Navbar = () => {
                 href="/Contact"
                 onClick={(e) => {
                   e.preventDefault();
+                  setIsMenuOpen(false); // Close mobile menu when navigating to Contact
                   navigate('/Contact');
                 }}
                 className={`ml-4 px-5 py-2 rounded-full text-sm font-medium transition-all duration-300 ${
@@ -200,6 +199,7 @@ const Navbar = () => {
             href="/Contact"
             onClick={(e) => {
               e.preventDefault();
+              setIsMenuOpen(false); // Close mobile menu when navigating to Contact
               navigate('/Contact');
             }}
             className={`block px-4 py-3 rounded-md text-base font-medium text-center mt-4 transition-all ${
@@ -217,5 +217,3 @@ const Navbar = () => {
 };
 
 export default Navbar;
-
-

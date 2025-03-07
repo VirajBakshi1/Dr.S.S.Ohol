@@ -62,7 +62,7 @@ const ExperienceSection = () => {
   ];
 
   return (
-    <section className="py-24 bg-gradient-to-b from-gray-900 to-black text-white relative overflow-hidden">
+    <section className="py-16 bg-gradient-to-b from-gray-900 to-black text-white relative overflow-hidden">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
         <h2 className="text-4xl font-bold mb-8 text-center">Professional Experience</h2>
         <div className="h-1 w-24 bg-gradient-to-r mb-8 from-blue-600 to-purple-600 mx-auto rounded-full"></div>
