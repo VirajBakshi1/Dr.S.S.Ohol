@@ -54,10 +54,10 @@ const EducationSection = () => {
           {education.map((edu, index) => (
             <div 
               key={index} 
-              className="bg-gray-600 rounded-xl shadow-xl p-6 transform hover:-translate-y-2 transition-all duration-300 hover:shadow-2xl border-t-4 border-blue-300 relative overflow-hidden group"
+              className="bg-gray-900 rounded-xl shadow-xl p-6 transform hover:-translate-y-2 transition-all duration-300 hover:shadow-2xl border-t-4 border-blue-300 relative overflow-hidden group"
             >
               {/* Background pattern */}
-              <div className="absolute inset-0 bg-gradient-to-br from-gray-950 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+              <div className="absolute inset-0 bg-gradient-to-br from-black to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
               
               {/* Content - layered on top of the background */}
               <div className="relative z-10">
