@@ -29,11 +29,11 @@ const HeroSection = () => {
       </div>
       
       <div className="max-w-6xl py-20 mx-auto w-full flex justify-center relative z-10">
-        <div className="flex flex-col md:flex-row md:items-center gap-16 lg:gap-24">
-          {/* Profile Image with subtle effect */}
-          <div className="w-64 h-64 md:w-80 md:h-80 relative group">
+        <div className="flex flex-col md:flex-row md:items-center gap-16 lg:gap-24 items-center">
+          {/* Profile Image with subtle effect - centered in mobile view */}
+          <div className="w-64 h-64 md:w-80 md:h-80 relative group mx-auto md:mx-0">
             {/* Image container */}
-            <div className="relative w-full h-full rounded-full overflow-hidden border-4 border-gray-800 shadow-lg">
+            <div className="relative w-full h-full rounded-full overflow-hidden border-4 border-gray-200 shadow-lg">
               <img 
                 src="https://irins.org/assets/profile_images/126037.JPG" 
                 alt="Dr. S. S. Ohol" 
