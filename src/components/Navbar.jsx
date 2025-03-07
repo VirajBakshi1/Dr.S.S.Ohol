@@ -75,7 +75,7 @@ const Navbar = () => {
     { name: 'Experience', sectionId: 'experience', isExternalPage: false },
     { name: 'Education', sectionId: 'education', isExternalPage: false },
     { name: 'Publication', sectionId: './PapersPublished', isExternalPage: true },
-    { name: 'COEP Acivities', sectionId: './CoepActivities', isExternalPage: true },
+    { name: 'COEP Activities', sectionId: './CoepActivities', isExternalPage: true },
   ];
 
   return (
