@@ -37,7 +37,7 @@ const CoepActivitiesPage = () => {
 
   const labDevelopment = {
     title: "Robotics & Automation Laboratory",
-    description: "Dr. Ohol has been instrumental in developing the Robotics & Automation Laboratory at COEP from 2004 to present. The lab currently includes:",
+    description: "I have been instrumental in developing the Robotics & Automation Laboratory at COEP from 2004 to present. The lab currently includes:",
     items: [
       "Six trainer robots from Parallex, USA (smaller lab version)",
       "One toy robot (Robosepian)",

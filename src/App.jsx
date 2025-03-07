@@ -6,6 +6,7 @@ import Navbar from './components/Navbar';
 import PapersPublished from './pages/PaperPublished/Paperpublished';
 import CoepActivitiesPage from './pages/Coep/CoepCarrer';
 import ContactPage from './pages/Contact/Contact';
+import Footer from './components/Footer';
 
 
 function App() {
@@ -19,6 +20,7 @@ function App() {
         <Route path="/CoepActivities" element={<CoepActivitiesPage />} />
         <Route path="/Contact" element={<ContactPage />} />
         </Routes>
+        <Footer />
       </div>
     </Router>
   );
