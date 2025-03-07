@@ -1,7 +1,7 @@
-// src/components/ExperienceSection.jsx
 import React from 'react';
 
 const ExperienceSection = () => {
+  // Experiences data is preserved from the original component
   const experiences = [
     {
       title: "Quality-Control-Engineer",
@@ -62,31 +62,40 @@ const ExperienceSection = () => {
   ];
 
   return (
-    <section className="py-16 bg-gradient-to-b from-gray-900 to-black text-white relative overflow-hidden">
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
-        <h2 className="text-4xl font-bold mb-8 text-center">Professional Experience</h2>
-        <div className="h-1 w-24 bg-gradient-to-r mb-8 from-blue-600 to-purple-600 mx-auto rounded-full"></div>
+    <section id="experience" className="py-16 bg-gray-50 text-gray-800 relative overflow-hidden">
+      <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+        <div className="text-center mb-12">
+          <h2 className="text-3xl font-semibold text-gray-900">Professional Experience</h2>
+          <div className="h-1 w-16 bg-blue-700 mx-auto mt-4"></div>
+        </div>
+        
         <div className="relative">
           {/* Timeline line */}
-          <div className="absolute left-8 top-6 bottom-0 w-0.5 bg-blue-500"></div>
+          <div className="absolute left-8 top-6 bottom-0 w-0.5 bg-blue-700 opacity-70"></div>
           
-          <div className="space-y-12">
+          <div className="space-y-10">
             {experiences.map((exp, index) => (
               <div key={index} className="relative pl-20">
                 {/* Circle on timeline */}
-                <div className="absolute left-6 top-1.5 w-5 h-5 rounded-full bg-blue-500 border-4 border-black z-10"></div>
+                <div className="absolute left-6 top-1.5 w-4 h-4 rounded-full bg-blue-700 border-2 border-white z-10 shadow-sm"></div>
                 
-                <div className="bg-gray-900 p-6 rounded-lg">
-                  <h3 className="text-xl font-bold text-blue-300">{exp.title}</h3>
-                  <p className="text-lg mt-1 text-white">{exp.company}</p>
-                  
-                  <div className="inline-block px-3 py-1 rounded-md bg-gray-800 text-sm mt-2 mb-3">
-                    {exp.period}
+                <div className="bg-white p-6 rounded-lg shadow-sm transition-shadow duration-300 hover:shadow-md">
+                  <div className="flex flex-wrap justify-between items-start">
+                    <div className="mb-2">
+                      <h3 className="text-lg font-medium text-gray-900">{exp.title}</h3>
+                      <p className="text-blue-700 font-medium">{exp.company}</p>
+                    </div>
+                    
+                    <div className="inline-block px-3 py-1 rounded bg-blue-50 text-blue-800 text-xs font-medium">
+                      {exp.period}
+                    </div>
                   </div>
                   
-                  <ul className="list-disc pl-5 space-y-1 text-gray-300">
+                  <ul className="mt-3 space-y-1 text-gray-700">
                     {exp.responsibilities.map((resp, respIndex) => (
-                      <li key={respIndex}>{resp}</li>
+                      <li key={respIndex} className="pl-5 relative before:content-[''] before:absolute before:left-0 before:top-2.5 before:w-1.5 before:h-1.5 before:bg-blue-700 before:rounded-full">
+                        {resp}
+                      </li>
                     ))}
                   </ul>
                 </div>

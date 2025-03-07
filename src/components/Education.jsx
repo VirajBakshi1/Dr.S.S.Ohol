@@ -1,8 +1,7 @@
-// src/components/EducationSection.jsx
 import React from 'react';
 
 const EducationSection = () => {
-  // Education data from the provided table
+  // Education data is preserved from the original component
   const education = [
     {
       degree: "B.E. (Mech.)",
@@ -25,67 +24,66 @@ const EducationSection = () => {
   ];
 
   return (
-    <section className="py-24 bg-gradient-to-b from-black to-gray-800 text-black relative overflow-hidden">
-      {/* Decorative elements */}
-      <div className="absolute top-0 right-0 w-96 h-96 bg-gray-800 rounded-full -translate-y-1/2 translate-x-1/3 opacity-50"></div>
-      <div className="absolute bottom-0 left-0 w-64 h-64 bg-gray-800 rounded-full translate-y-1/3 -translate-x-1/4 opacity-40"></div>
+    <section id="education" className="py-20 bg-white text-gray-800 relative overflow-hidden">
+      {/* Subtle decorative elements */}
+      <div className="absolute top-0 right-0 w-96 h-96 bg-blue-50 rounded-full -translate-y-1/2 translate-x-1/3 opacity-30"></div>
+      <div className="absolute bottom-0 left-0 w-64 h-64 bg-blue-50 rounded-full translate-y-1/3 -translate-x-1/4 opacity-30"></div>
       
-      {/* Floating icons */}
-      <div className="absolute top-24 right-32 opacity-10">
-        <svg className="w-20 h-20 text-blue-200" fill="currentColor" viewBox="0 0 24 24">
-          <path d="M12 3L1 9l4 2.18v6L12 21l7-3.82v-6l2-1.09V17h2V9L12 3z"/>
-        </svg>
-      </div>
-      <div className="absolute bottom-20 left-40 opacity-10">
-        <svg className="w-16 h-16 text-blue-800 rotate-45" fill="currentColor" viewBox="0 0 24 24">
-          <path d="M4 7v2c0 .55.45 1 1 1h16v-2c0-.55-.45-1-1-1H5c-.55 0-1 .45-1 1zm17 11c0 .55-.45 1-1 1H5c-.55 0-1-.45-1-1v-2h18v2zm-1-7H4v4h16v-4z"/>
-        </svg>
-      </div>
-      
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        <div className="text-center mb-16">
-          <h2 className="text-5xl font-bold mb-4 bg-clip-text text-transparent bg-gradient-to-r from-blue-200 to-gray-200">
+      <div className="max-w-5xl mx-auto px-4 sm:px-6 py-8 lg:px-8 relative z-10">
+        <div className="text-center mb-12">
+          <h2 className="text-3xl font-semibold text-gray-900">
             Education
           </h2>
-          <div className="h-1 w-24 bg-gradient-to-r from-blue-600 to-purple-600 mx-auto rounded-full"></div>
+          <div className="h-1 w-16 bg-blue-700 mx-auto mt-4"></div>
         </div>
         
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           {education.map((edu, index) => (
             <div 
               key={index} 
-              className="bg-gray-900 rounded-xl shadow-xl p-6 transform hover:-translate-y-2 transition-all duration-300 hover:shadow-2xl border-t-4 border-blue-300 relative overflow-hidden group"
+              className="bg-white rounded-lg shadow-sm p-6 transition-all duration-300 hover:shadow-md border-l-4 border-blue-700 relative overflow-hidden"
             >
-              {/* Background pattern */}
-              <div className="absolute inset-0 bg-gradient-to-br from-black to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-              
-              {/* Content - layered on top of the background */}
-              <div className="relative z-10">
-                {/* Degree Icon */}
-                <div className="w-12 h-12 rounded-full bg-blue-100 flex items-center justify-center mb-4">
-                  <svg className="w-6 h-6 text-blue-700" fill="currentColor" viewBox="0 0 24 24">
+              <div className="flex items-center mb-4">
+                <div className="w-10 h-10 rounded-full bg-blue-50 flex items-center justify-center mr-3">
+                  <svg className="w-5 h-5 text-blue-700" fill="currentColor" viewBox="0 0 24 24">
                     <path d="M12 3L1 9l4 2.18v6L12 21l7-3.82v-6l2-1.09V17h2V9L12 3zm7 10.82L12 17l-7-3.82v-3.64L12 13l7-3.82v4.64zM12 5l8 4-8 4-8-4 8-4z"/>
                   </svg>
                 </div>
-                
-                <h3 className="text-xl font-bold mb-2 text-gray-100">{edu.degree}</h3>
-                
-                <div className="mb-3 text-blue-300 font-medium">{edu.institution}</div>
-                
-                <div className="inline-block px-3 py-1 rounded-md bg-blue-900 text-blue-200 text-sm mb-4 font-medium">
+                <h3 className="text-lg font-medium text-gray-900">{edu.degree}</h3>
+              </div>
+              
+              <div className="flex justify-between items-start mb-3">
+                <div className="text-blue-700 font-medium text-sm">{edu.institution}</div>
+                <div className="inline-block px-2 py-1 rounded bg-blue-50 text-blue-800 text-xs font-medium ml-2">
                   {edu.year}
                 </div>
-                
-                <div className="text-gray-300 border-t border-gray-200 pt-3">
-                  {edu.content.split('|').map((part, idx) => (
-                    <div key={idx} className={`${idx > 0 ? 'mt-1' : ''}`}>
-                      {part.trim()}
-                    </div>
-                  ))}
-                </div>
+              </div>
+              
+              <div className="text-gray-600 border-t border-gray-100 pt-3 mt-1">
+                {edu.content.split('|').map((part, idx) => (
+                  <div key={idx} className={`${idx > 0 ? 'mt-1' : ''} text-sm`}>
+                    {part.trim()}
+                  </div>
+                ))}
               </div>
             </div>
           ))}
+        </div>
+      </div>
+      
+      {/* Additional section showing professional certifications */}
+      <div className="max-w-5xl mx-auto px-4 sm:px-6 py-8 lg:px-8 relative z-10 mt-8">
+        <div className="bg-gray-50 rounded-lg shadow-sm p-6 border-t border-gray-200">
+          <h3 className="text-xl font-medium text-gray-800 mb-4">Professional Development</h3>
+          <p className="text-gray-600 mb-4">Continuous professional development through various workshops, seminars, and training programs in robotics, AI, and engineering education.</p>
+          
+          <div className="flex flex-wrap gap-3">
+            <span className="inline-block px-3 py-1 bg-blue-50 text-blue-800 text-xs font-medium rounded">Robotics & AI</span>
+            <span className="inline-block px-3 py-1 bg-blue-50 text-blue-800 text-xs font-medium rounded">Engineering Education</span>
+            <span className="inline-block px-3 py-1 bg-blue-50 text-blue-800 text-xs font-medium rounded">Mechanical Engineering</span>
+            <span className="inline-block px-3 py-1 bg-blue-50 text-blue-800 text-xs font-medium rounded">Automation</span>
+            <span className="inline-block px-3 py-1 bg-blue-50 text-blue-800 text-xs font-medium rounded">Research Methodology</span>
+          </div>
         </div>
       </div>
     </section>

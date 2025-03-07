@@ -1,9 +1,8 @@
 import { useState, useEffect } from 'react';
-import { Sun, Moon, Menu, X } from 'lucide-react';
+import { Menu, X } from 'lucide-react';
 import { useLocation, useNavigate } from 'react-router-dom';
 
 const Navbar = () => {
-  const [isDarkMode, setIsDarkMode] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
   const location = useLocation();
@@ -34,13 +33,7 @@ const Navbar = () => {
       // No hash in URL, scroll to top when changing pages
       window.scrollTo(0, 0);
     }
-  }, [location.pathname]);
-
-  const toggleDarkMode = () => {
-    setIsDarkMode(!isDarkMode);
-    // In a real app, you would add/remove dark class to document.documentElement
-    // or use a context provider for theme management
-  };
+  }, [location.pathname, location.hash, isHomePage]);
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
@@ -81,11 +74,9 @@ const Navbar = () => {
   return (
     <nav 
       className={`fixed top-0 w-full z-50 transition-all duration-300 ${
-        isDarkMode 
-          ? 'bg-gray-900 text-white' 
-          : isScrolled 
-            ? 'bg-white text-gray-900 shadow-md' 
-            : 'bg-transparent text-white'
+        isScrolled 
+          ? 'bg-white text-gray-800 shadow-md' 
+          : 'bg-transparent text-gray-800'
       }`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -99,8 +90,8 @@ const Navbar = () => {
                 navigate('/');
                 window.scrollTo(0, 0);
               }}
-              className={`text-2xl font-bold tracking-tight hover:text-red-500 transition-colors ${
-                isDarkMode ? 'text-white' : isScrolled ? 'text-gray-900' : 'text-white'
+              className={`text-2xl font-bold tracking-tight hover:text-blue-700 transition-colors ${
+                isScrolled ? 'text-gray-800' : 'text-gray-800'
               }`}
             >
               Dr. S. S. Ohol
@@ -119,15 +110,13 @@ const Navbar = () => {
                     navigateToSection(link.sectionId, link.isExternalPage);
                   }}
                   className={`relative px-2 py-1 text-sm font-medium group ${
-                    isDarkMode 
-                      ? 'hover:text-red-400' 
-                      : isScrolled 
-                        ? 'hover:text-red-500' 
-                        : 'hover:text-red-300'
+                    isScrolled 
+                      ? 'hover:text-blue-700' 
+                      : 'hover:text-blue-700'
                   }`}
                 >
                   <span className="relative z-10">{link.name}</span>
-                  <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-red-500 group-hover:w-full transition-all duration-300"></span>
+                  <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-blue-700 group-hover:w-full transition-all duration-300"></span>
                 </a>
               ))}
               <a
@@ -138,9 +127,7 @@ const Navbar = () => {
                   navigate('/Contact');
                 }}
                 className={`ml-4 px-5 py-2 rounded-full text-sm font-medium transition-all duration-300 ${
-                  isDarkMode 
-                    ? 'bg-red-600 hover:bg-red-700 text-white' 
-                    : 'bg-red-500 hover:bg-red-600 text-white shadow-md hover:shadow-lg'
+                  'bg-blue-600 hover:bg-blue-700 text-white shadow-md hover:shadow-lg'
                 }`}
               >
                 Contact
@@ -155,11 +142,9 @@ const Navbar = () => {
               <button
                 onClick={toggleMenu}
                 className={`inline-flex items-center justify-center p-2 rounded-md focus:outline-none ${
-                  isDarkMode 
-                    ? 'hover:bg-gray-700 text-white' 
-                    : isScrolled 
-                      ? 'hover:bg-gray-100 text-gray-700' 
-                      : 'hover:bg-white/10 text-white'
+                  isScrolled 
+                    ? 'hover:bg-gray-100 text-gray-700' 
+                    : 'hover:bg-gray-100 text-gray-700'
                 }`}
                 aria-expanded={isMenuOpen}
                 aria-label="Toggle menu"
@@ -175,7 +160,7 @@ const Navbar = () => {
       <div 
         className={`md:hidden transition-all duration-300 overflow-hidden ${
           isMenuOpen ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'
-        } ${isDarkMode ? 'bg-gray-800' : 'bg-white/95 backdrop-blur-sm'}`}
+        } bg-white/95 backdrop-blur-sm`}
       >
         <div className="px-4 py-3 space-y-2">
           {navLinks.map((link) => (
@@ -186,11 +171,7 @@ const Navbar = () => {
                 e.preventDefault();
                 navigateToSection(link.sectionId, link.isExternalPage);
               }}
-              className={`block px-3 py-2 rounded-md text-base font-medium transition-colors ${
-                isDarkMode 
-                  ? 'hover:bg-gray-700 text-gray-300 hover:text-white' 
-                  : 'hover:bg-gray-100 text-gray-800 hover:text-gray-900'
-              }`}
+              className="block px-3 py-2 rounded-md text-base font-medium transition-colors hover:bg-gray-100 text-gray-800 hover:text-blue-700"
             >
               {link.name}
             </a>
@@ -202,11 +183,7 @@ const Navbar = () => {
               setIsMenuOpen(false); // Close mobile menu when navigating to Contact
               navigate('/Contact');
             }}
-            className={`block px-4 py-3 rounded-md text-base font-medium text-center mt-4 transition-all ${
-              isDarkMode 
-                ? 'bg-red-600 hover:bg-red-700 text-white'
-                : 'bg-red-500 hover:bg-red-600 text-white shadow-sm'
-            }`}
+            className="block px-4 py-3 rounded-md text-base font-medium text-center mt-4 transition-all bg-blue-600 hover:bg-blue-700 text-white shadow-sm"
           >
             Contact
           </a>

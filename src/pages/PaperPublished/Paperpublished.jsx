@@ -7,9 +7,9 @@ const PapersPublished = () => {
 
   const categories = ['all', 'journals', 'conferences', 'books', 'book chapters', 'patents'];
   
+  // Original publications array is preserved (not shown here to avoid repetition)
 
-
-  const publications = [
+const publications = [
     // International Journals (26)
     {
       id: 1,
@@ -986,16 +986,16 @@ const PapersPublished = () => {
       case 'conferences':
         return (
           <>
-            {pub.volume && <span className="bg-purple-900 text-purple-200 text-xs font-medium px-2.5 py-0.5 rounded">Vol. {pub.volume}{pub.issue && `, Issue ${pub.issue}`}</span>}
-            {pub.pages && <span className="bg-amber-900 text-amber-200 text-xs font-medium px-2.5 py-0.5 rounded">Pages: {pub.pages}</span>}
+            {pub.volume && <span className="bg-gray-100 text-gray-700 text-xs font-medium px-2.5 py-0.5 rounded-sm mr-1">Vol. {pub.volume}{pub.issue && `, Issue ${pub.issue}`}</span>}
+            {pub.pages && <span className="bg-gray-100 text-gray-700 text-xs font-medium px-2.5 py-0.5 rounded-sm">Pages: {pub.pages}</span>}
             {pub.doi && (
               <div className="mt-2">
-                <a href={`https://doi.org/${pub.doi}`} target="_blank" rel="noopener noreferrer" className="text-blue-400 hover:text-blue-300 text-sm inline-flex items-center">
+                <a href={`https://doi.org/${pub.doi}`} target="_blank" rel="noopener noreferrer" className="text-blue-700 hover:text-blue-900 text-sm inline-flex items-center">
                   <svg className="w-4 h-4 mr-1" fill="currentColor" viewBox="0 0 20 20">
                     <path d="M11 3a1 1 0 100 2h2.586l-6.293 6.293a1 1 0 101.414 1.414L15 6.414V9a1 1 0 102 0V4a1 1 0 00-1-1h-5z" />
                     <path d="M5 5a2 2 0 00-2 2v8a2 2 0 002 2h8a2 2 0 002-2v-3a1 1 0 10-2 0v3H5V7h3a1 1 0 000-2H5z" />
                   </svg>
-                  {pub.doi}
+                  DOI: {pub.doi}
                 </a>
               </div>
             )}
@@ -1003,18 +1003,18 @@ const PapersPublished = () => {
         );
       case 'books':
         return (
-          <span className="bg-indigo-900 text-indigo-200 text-xs font-medium px-2.5 py-0.5 rounded">{pub.edition} Edition</span>
+          <span className="bg-gray-100 text-gray-700 text-xs font-medium px-2.5 py-0.5 rounded-sm">{pub.edition} Edition</span>
         );
       case 'book chapters':
         return (
-          <span className="bg-teal-900 text-teal-200 text-xs font-medium px-2.5 py-0.5 rounded">Chapter {pub.chapter}</span>
+          <span className="bg-gray-100 text-gray-700 text-xs font-medium px-2.5 py-0.5 rounded-sm">Chapter {pub.chapter}</span>
         );
       case 'patents':
         return (
           <>
-            {pub.patentNumber && <span className="bg-red-900 text-red-200 text-xs font-medium px-2.5 py-0.5 rounded">Patent No. {pub.patentNumber}</span>}
-            <span className="bg-yellow-900 text-yellow-200 text-xs font-medium px-2.5 py-0.5 rounded">Application No. {pub.applicationNumber}</span>
-            <span className="bg-green-900 text-green-200 text-xs font-medium px-2.5 py-0.5 rounded">{pub.status}</span>
+            {pub.patentNumber && <span className="bg-gray-100 text-gray-700 text-xs font-medium px-2.5 py-0.5 rounded-sm mr-1">Patent No. {pub.patentNumber}</span>}
+            <span className="bg-gray-100 text-gray-700 text-xs font-medium px-2.5 py-0.5 rounded-sm mr-1">Application No. {pub.applicationNumber}</span>
+            <span className="bg-blue-50 text-blue-700 text-xs font-medium px-2.5 py-0.5 rounded-sm">{pub.status}</span>
           </>
         );
       default:
@@ -1032,77 +1032,56 @@ const PapersPublished = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-gray-950 to-black text-gray-100">
-      <div className="bg-black bg-opacity-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24">
-          <h1 className="text-5xl font-bold mb-3 text-center text-white">Research Publications</h1>
-          <p className="text-xl opacity-80 text-center max-w-3xl mx-auto text-blue-200">
+    <div className="min-h-screen bg-gray-50 text-gray-800">
+      <div className="bg-white border-b border-gray-200">
+        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
+          <h1 className="text-3xl font-semibold mb-2 text-center text-gray-900">Publications</h1>
+          <div className="h-1 w-16 bg-blue-700 mx-auto mb-4"></div>
+          <p className="text-base text-center max-w-2xl mx-auto text-gray-600">
             Scholarly contributions in robotics, automation, and mechanical engineering
           </p>
         </div>
       </div>
       
-      <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 -mt-10">
+      <main className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         {/* Stats Cards */}
-        <div className="grid grid-cols-2 md:grid-cols-5 gap-3 mb-10">
-          <div className="bg-gray-800 bg-opacity-60 backdrop-filter backdrop-blur-sm rounded-lg shadow-lg p-4 transform hover:-translate-y-1 transition-all duration-300 border border-gray-700">
-            <div className="flex flex-col items-center">
-              <div className="text-3xl font-bold text-blue-400 mb-1">{counts.journals}</div>
-              <div className="text-sm text-gray-400">Journals</div>
+        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-4 mb-8">
+          {Object.entries(counts).map(([category, count]) => (
+            <div key={category} className="bg-white rounded shadow-sm p-4 border border-gray-100">
+              <div className="flex flex-col items-center">
+                <div className="text-2xl font-bold text-gray-800 mb-1">{count}</div>
+                <div className="text-sm text-gray-500 capitalize">{category}</div>
+              </div>
             </div>
-          </div>
-          <div className="bg-gray-800 bg-opacity-60 backdrop-filter backdrop-blur-sm rounded-lg shadow-lg p-4 transform hover:-translate-y-1 transition-all duration-300 border border-gray-700">
-            <div className="flex flex-col items-center">
-              <div className="text-3xl font-bold text-green-400 mb-1">{counts.conferences}</div>
-              <div className="text-sm text-gray-400">Conferences</div>
-            </div>
-          </div>
-          <div className="bg-gray-800 bg-opacity-60 backdrop-filter backdrop-blur-sm rounded-lg shadow-lg p-4 transform hover:-translate-y-1 transition-all duration-300 border border-gray-700">
-            <div className="flex flex-col items-center">
-              <div className="text-3xl font-bold text-purple-400 mb-1">{counts.books}</div>
-              <div className="text-sm text-gray-400">Books</div>
-            </div>
-          </div>
-          <div className="bg-gray-800 bg-opacity-60 backdrop-filter backdrop-blur-sm rounded-lg shadow-lg p-4 transform hover:-translate-y-1 transition-all duration-300 border border-gray-700">
-            <div className="flex flex-col items-center">
-              <div className="text-3xl font-bold text-teal-400 mb-1">{counts['book chapters']}</div>
-              <div className="text-sm text-gray-400">Book Chapters</div>
-            </div>
-          </div>
-          <div className="bg-gray-800 bg-opacity-60 backdrop-filter backdrop-blur-sm rounded-lg shadow-lg p-4 transform hover:-translate-y-1 transition-all duration-300 border border-gray-700">
-            <div className="flex flex-col items-center">
-              <div className="text-3xl font-bold text-red-400 mb-1">{counts.patents}</div>
-              <div className="text-sm text-gray-400">Patents</div>
-            </div>
-          </div>
+          ))}
         </div>
         
         {/* Search and Filter */}
-        <div className="bg-gray-800 bg-opacity-70 rounded-xl shadow-lg overflow-hidden mb-8 border border-gray-700">
+        <div className="bg-white rounded shadow-sm mb-8 border border-gray-200">
           <div className="md:flex items-center">
             <div className="relative flex-grow p-4">
-              <div className="absolute inset-y-0 left-0 pl-8 flex items-center pointer-events-none">
-                <svg className="w-5 h-5 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <div className="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
+                <svg className="w-5 h-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
                 </svg>
               </div>
               <input
                 type="text"
-                placeholder="Search by title, author, journal, or year..."
+                placeholder="Search publications..."
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
-                className="w-full pl-12 pr-4 py-3 bg-gray-900 border border-gray-700 text-white placeholder-gray-500 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 rounded-lg"
+                className="w-full pl-10 pr-4 py-2 bg-white border border-gray-300 text-gray-800 placeholder-gray-400 focus:ring-1 focus:ring-blue-600 focus:border-blue-600 rounded-md"
               />
             </div>
             
-            <div className="flex p-4 bg-gray-900 overflow-x-auto md:w-auto" style={{scrollbarWidth: 'none'}}>
+            <div className="flex p-4 overflow-x-auto md:w-auto border-t md:border-t-0 md:border-l border-gray-200">
               {categories.map(category => (
                 <button
                   key={category}
-                  className={`px-4 py-2 mx-1 rounded-full text-sm font-medium whitespace-nowrap transition-all duration-200 ${
+                  className={`px-3 py-1.5 mx-1 rounded text-sm font-medium whitespace-nowrap transition-all ${
                     filterCategory === category 
-                      ? 'bg-blue-700 text-white shadow-md' 
-                      : 'bg-gray-700 text-gray-200 hover:bg-gray-600'
+                      ? 'bg-blue-700 text-white' 
+                      : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
                   }`}
                   onClick={() => setFilterCategory(category)}
                 >
@@ -1114,45 +1093,51 @@ const PapersPublished = () => {
         </div>
         
         {/* Results count */}
-        <div className="mb-6 text-gray-400 font-medium">
-          {filteredPublications.length} {filteredPublications.length === 1 ? 'result' : 'results'} found
+        <div className="mb-6 text-gray-500 font-medium text-sm">
+          Showing {filteredPublications.length} {filteredPublications.length === 1 ? 'publication' : 'publications'}
         </div>
         
-        {/* Publications Grid */}
+        {/* Publications List */}
         {filteredPublications.length > 0 ? (
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="space-y-4">
             {filteredPublications.map(pub => (
-              <div key={pub.id} className="bg-gray-800 bg-opacity-70 rounded-xl shadow-lg overflow-hidden transition-all duration-300 hover:shadow-white/10 hover:shadow-xl border-t-4 border-gray-700 border border-gray-700 flex flex-col h-full">
-                <div className="p-6 flex flex-col flex-grow">
-                  <div className="flex-grow">
-                    <div className="inline-block px-2 py-1 bg-gray-700 text-gray-300 text-xs font-semibold rounded mb-3">
-                      {pub.category.charAt(0).toUpperCase() + pub.category.slice(1)}
+              <div key={pub.id} className="bg-white rounded shadow-sm border-l-4 border-blue-700 overflow-hidden">
+                <div className="p-5">
+                  <div className="flex flex-wrap justify-between items-start mb-2">
+                    <h2 className="text-lg font-semibold text-gray-900 mb-1 flex-grow">{pub.title}</h2>
+                    <div className="ml-2">
+                      <span className="inline-block bg-blue-50 text-blue-700 text-xs font-medium px-2 py-1 rounded">
+                        {pub.year}
+                      </span>
                     </div>
-                    {/* Removed the line-clamp-2 class to show full title */}
-                    <h2 className="text-lg font-bold text-white mb-2">{pub.title}</h2>
-                    <p className="text-sm text-gray-300 mb-3 line-clamp-1">{pub.authors}</p>
-                    
-                    <div className="flex flex-wrap gap-2 mb-3">
-                      <span className="bg-blue-900 text-blue-200 text-xs font-medium px-2 py-1 rounded">{pub.journal}</span>
-                      <span className="bg-green-900 text-green-200 text-xs font-medium px-2 py-1 rounded">{pub.year}</span>
-                    </div>
-                    
-                    <div className="flex flex-wrap gap-2 mb-3">
+                  </div>
+                  
+                  <p className="text-sm text-gray-700 mb-3">{pub.authors}</p>
+                  
+                  <div className="flex flex-wrap items-center text-sm text-gray-600 mb-3">
+                    <span className="mr-3 font-medium">{pub.journal}</span>
+                    <div className="flex flex-wrap gap-1">
                       {renderPublicationDetails(pub)}
                     </div>
                   </div>
                   
-                  {pub.abstract && (
-                    <button 
-                      onClick={() => toggleAbstract(pub.id)}
-                      className="mt-3 text-blue-400 hover:text-blue-300 text-sm font-medium"
-                    >
-                      {expandedAbstracts[pub.id] ? 'Hide Abstract' : 'View Abstract'}
-                    </button>
-                  )}
+                  <div className="flex items-center text-sm">
+                    <span className="inline-flex items-center px-2 py-0.5 rounded bg-gray-100 text-gray-500 text-xs capitalize">
+                      {pub.category}
+                    </span>
+                    
+                    {pub.abstract && (
+                      <button 
+                        onClick={() => toggleAbstract(pub.id)}
+                        className="ml-3 text-blue-700 hover:text-blue-900 text-sm font-medium"
+                      >
+                        {expandedAbstracts[pub.id] ? 'Hide Abstract' : 'View Abstract'}
+                      </button>
+                    )}
+                  </div>
                   
                   {expandedAbstracts[pub.id] && pub.abstract && (
-                    <div className="mt-3 p-3 bg-gray-700 rounded-md text-sm text-gray-300">
+                    <div className="mt-3 p-3 bg-gray-50 rounded-md text-sm text-gray-700 border border-gray-100">
                       {pub.abstract}
                     </div>
                   )}
@@ -1161,13 +1146,13 @@ const PapersPublished = () => {
             ))}
           </div>
         ) : (
-          <div className="text-center py-16 bg-gray-800 bg-opacity-70 rounded-lg shadow-md border border-gray-700">
-            <svg className="w-16 h-16 text-gray-600 mx-auto mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <div className="text-center py-12 bg-white rounded shadow-sm border border-gray-200">
+            <svg className="w-12 h-12 text-gray-300 mx-auto mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9.172 16.172a4 4 0 015.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
             </svg>
-            <h3 className="text-xl font-medium text-white mb-2">No publications found</h3>
-            <p className="text-gray-400 max-w-md mx-auto">
-              Try adjusting your search query or selecting a different category filter
+            <h3 className="text-lg font-medium text-gray-800 mb-2">No publications found</h3>
+            <p className="text-gray-500 max-w-md mx-auto">
+              Try adjusting your search criteria or selecting a different category
             </p>
           </div>
         )}
@@ -1177,6 +1162,5 @@ const PapersPublished = () => {
 };
 
 export default PapersPublished;
-
 
 

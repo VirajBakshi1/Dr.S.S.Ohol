@@ -178,28 +178,29 @@ const CoepActivitiesPage = () => {
     "EPLAN Software & Services India Pvt Ltd (January 2024) - 35 user licenses + trainer license"
   ];
   return (
-    <div className="min-h-screen bg-gradient-to-b from-gray-950 to-black text-gray-100">
+    <div className="min-h-screen bg-gray-50 text-gray-800">
       {/* Header */}
-      <div className="bg-black bg-opacity-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24">
-          <h1 className="text-5xl font-bold mb-3 text-center text-white">Dr. S.S. Ohol at COEP</h1>
-          <p className="text-xl opacity-80 text-center max-w-3xl mx-auto text-gray-300">
+      <div className="bg-white border-b border-gray-200">
+        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
+          <h1 className="text-3xl font-semibold mb-2 text-center text-gray-900">COEP Technological University Activities</h1>
+          <div className="h-1 w-16 bg-blue-700 mx-auto mb-4"></div>
+          <p className="text-base text-center max-w-2xl mx-auto text-gray-600">
             Academic contributions, leadership roles, and research activities at COEP Technological University
           </p>
         </div>
       </div>
 
       {/* Navigation Tabs */}
-      <div className="bg-gray-800 bg-opacity-70 sticky top-0 z-20 shadow-md">
-        <div className="max-w-7xl mx-auto px-4">
+      <div className="bg-white sticky top-0 z-20 shadow-md border-b border-gray-200">
+        <div className="max-w-6xl mx-auto px-4">
           <div className="flex overflow-x-auto py-2 scrollbar-hide">
             {tabs.map(tab => (
               <button
                 key={tab.id}
-                className={`px-4 py-2 mx-1 rounded-full transition-all whitespace-nowrap text-sm font-medium ${
+                className={`px-4 py-2 mx-1 rounded transition-all whitespace-nowrap text-sm font-medium ${
                   activeTab === tab.id 
-                    ? 'bg-blue-600 text-white shadow-md' 
-                    : 'bg-gray-700 text-gray-300 hover:bg-blue-600'
+                    ? 'bg-blue-700 text-white shadow-sm' 
+                    : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
                 }`}
                 onClick={() => setActiveTab(tab.id)}
               >
@@ -211,18 +212,18 @@ const CoepActivitiesPage = () => {
       </div>
 
       {/* Content */}
-      <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 -mt-10">
+      <main className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
         {/* Positions Tab */}
         {activeTab === 'positions' && (
           <div className="space-y-6">
-            <div className="bg-gray-800 bg-opacity-70 rounded-xl shadow-lg overflow-hidden transition-all duration-300 hover:shadow-white/10 hover:shadow-xl border-t-4 border-gray-600 border border-gray-700">
+            <div className="bg-white rounded-lg shadow-sm overflow-hidden border-l-4 border-blue-700">
               <div className="p-6">
-                <h2 className="text-2xl font-bold mb-6 text-white">Current Positions</h2>
+                <h2 className="text-xl font-semibold mb-6 text-gray-800">Current Positions</h2>
                 <ul className="space-y-3">
                   {currentPositions.map((position, index) => (
                     <li 
                       key={index} 
-                      className="pl-6 relative text-gray-200 before:content-[''] before:absolute before:left-0 before:top-3 before:w-3 before:h-3 before:bg-gray-500 before:rounded-full"
+                      className="pl-6 relative text-gray-700 before:content-[''] before:absolute before:left-0 before:top-3 before:w-2 before:h-2 before:bg-blue-700 before:rounded-full"
                     >
                       {position}
                     </li>
@@ -231,14 +232,14 @@ const CoepActivitiesPage = () => {
               </div>
             </div>
 
-            <div className="bg-gray-800 bg-opacity-70 rounded-xl shadow-lg overflow-hidden transition-all duration-300 hover:shadow-white/10 hover:shadow-xl border-t-4 border-gray-500 border border-gray-700">
+            <div className="bg-white rounded-lg shadow-sm overflow-hidden border-l-4 border-blue-600">
               <div className="p-6">
-                <h2 className="text-2xl font-bold mb-6 text-white">Previous Positions</h2>
+                <h2 className="text-xl font-semibold mb-6 text-gray-800">Previous Positions</h2>
                 <ul className="space-y-3">
                   {previousPositions.map((position, index) => (
                     <li 
                       key={index} 
-                      className="pl-6 relative text-gray-200 before:content-[''] before:absolute before:left-0 before:top-3 before:w-3 before:h-3 before:bg-gray-500 before:rounded-full"
+                      className="pl-6 relative text-gray-700 before:content-[''] before:absolute before:left-0 before:top-3 before:w-2 before:h-2 before:bg-blue-600 before:rounded-full"
                     >
                       {position}
                     </li>
@@ -251,25 +252,25 @@ const CoepActivitiesPage = () => {
 
         {/* Lab Development Tab */}
         {activeTab === 'lab' && (
-          <div className="bg-gray-800 bg-opacity-70 rounded-xl shadow-lg overflow-hidden transition-all duration-300 hover:shadow-white/10 hover:shadow-xl border-t-4 border-gray-600 border border-gray-700">
+          <div className="bg-white rounded-lg shadow-sm overflow-hidden border-l-4 border-blue-700">
             <div className="p-6">
-              <h2 className="text-2xl font-bold mb-2 text-white">{labDevelopment.title}</h2>
-              <p className="mb-4 text-gray-300">{labDevelopment.description}</p>
+              <h2 className="text-xl font-semibold mb-2 text-gray-800">{labDevelopment.title}</h2>
+              <p className="mb-4 text-gray-600">{labDevelopment.description}</p>
               
               <ul className="space-y-3 mb-6">
                 {labDevelopment.items.map((item, index) => (
                   <li 
                     key={index} 
-                    className="pl-6 relative text-gray-200 before:content-[''] before:absolute before:left-0 before:top-3 before:w-3 before:h-3 before:bg-gray-500 before:rounded-full"
+                    className="pl-6 relative text-gray-700 before:content-[''] before:absolute before:left-0 before:top-3 before:w-2 before:h-2 before:bg-blue-700 before:rounded-full"
                   >
                     {item}
                   </li>
                 ))}
               </ul>
               
-              <div className="p-4 bg-gray-700 rounded-lg border-l-4 border-gray-500">
-                <h3 className="font-bold text-gray-300 mb-2">Recent Lab Upgrade</h3>
-                <p className="text-gray-200">{labDevelopment.recent}</p>
+              <div className="p-4 bg-blue-50 rounded-lg border-l-4 border-blue-600">
+                <h3 className="font-medium text-gray-800 mb-2">Recent Lab Upgrade</h3>
+                <p className="text-gray-700">{labDevelopment.recent}</p>
               </div>
             </div>
           </div>
@@ -278,14 +279,14 @@ const CoepActivitiesPage = () => {
         {/* Student Activities Tab */}
         {activeTab === 'student' && (
           <div className="space-y-6">
-            <div className="bg-gray-800 bg-opacity-70 rounded-xl shadow-lg overflow-hidden transition-all duration-300 hover:shadow-white/10 hover:shadow-xl border-t-4 border-gray-600 border border-gray-700">
+            <div className="bg-white rounded-lg shadow-sm overflow-hidden border-l-4 border-blue-700">
               <div className="p-6">
-                <h2 className="text-2xl font-bold mb-4 text-white">{studentActivities.rsc.title}</h2>
+                <h2 className="text-xl font-semibold mb-4 text-gray-800">{studentActivities.rsc.title}</h2>
                 <ul className="space-y-3">
                   {studentActivities.rsc.items.map((item, index) => (
                     <li 
                       key={index} 
-                      className="pl-6 relative text-gray-200 before:content-[''] before:absolute before:left-0 before:top-3 before:w-3 before:h-3 before:bg-gray-500 before:rounded-full"
+                      className="pl-6 relative text-gray-700 before:content-[''] before:absolute before:left-0 before:top-3 before:w-2 before:h-2 before:bg-blue-700 before:rounded-full"
                     >
                       {item}
                     </li>
@@ -294,14 +295,14 @@ const CoepActivitiesPage = () => {
               </div>
             </div>
 
-            <div className="bg-gray-800 bg-opacity-70 rounded-xl shadow-lg overflow-hidden transition-all duration-300 hover:shadow-white/10 hover:shadow-xl border-t-4 border-gray-500 border border-gray-700">
+            <div className="bg-white rounded-lg shadow-sm overflow-hidden border-l-4 border-blue-600">
               <div className="p-6">
-                <h2 className="text-2xl font-bold mb-4 text-white">{studentActivities.competitions.title}</h2>
+                <h2 className="text-xl font-semibold mb-4 text-gray-800">{studentActivities.competitions.title}</h2>
                 <ul className="space-y-3">
                   {studentActivities.competitions.items.map((item, index) => (
                     <li 
                       key={index} 
-                      className="pl-6 relative text-gray-200 before:content-[''] before:absolute before:left-0 before:top-3 before:w-3 before:h-3 before:bg-gray-500 before:rounded-full"
+                      className="pl-6 relative text-gray-700 before:content-[''] before:absolute before:left-0 before:top-3 before:w-2 before:h-2 before:bg-blue-600 before:rounded-full"
                     >
                       {item}
                     </li>
@@ -310,14 +311,14 @@ const CoepActivitiesPage = () => {
               </div>
             </div>
 
-            <div className="bg-gray-800 bg-opacity-70 rounded-xl shadow-lg overflow-hidden transition-all duration-300 hover:shadow-white/10 hover:shadow-xl border-t-4 border-gray-600 border border-gray-700">
+            <div className="bg-white rounded-lg shadow-sm overflow-hidden border-l-4 border-blue-700">
               <div className="p-6">
-                <h2 className="text-2xl font-bold mb-4 text-white">{studentActivities.projects.title}</h2>
+                <h2 className="text-xl font-semibold mb-4 text-gray-800">{studentActivities.projects.title}</h2>
                 <ul className="space-y-3">
                   {studentActivities.projects.items.map((item, index) => (
                     <li 
                       key={index} 
-                      className="pl-6 relative text-gray-200 before:content-[''] before:absolute before:left-0 before:top-3 before:w-3 before:h-3 before:bg-gray-500 before:rounded-full"
+                      className="pl-6 relative text-gray-700 before:content-[''] before:absolute before:left-0 before:top-3 before:w-2 before:h-2 before:bg-blue-700 before:rounded-full"
                     >
                       {item}
                     </li>
@@ -331,14 +332,14 @@ const CoepActivitiesPage = () => {
         {/* Research Projects Tab */}
         {activeTab === 'research' && (
           <div className="space-y-6">
-            <div className="bg-gray-800 bg-opacity-70 rounded-xl shadow-lg overflow-hidden transition-all duration-300 hover:shadow-white/10 hover:shadow-xl border-t-4 border-gray-600 border border-gray-700">
+            <div className="bg-white rounded-lg shadow-sm overflow-hidden border-l-4 border-blue-700">
               <div className="p-6">
-                <h2 className="text-2xl font-bold mb-4 text-white">{research.completed.title}</h2>
+                <h2 className="text-xl font-semibold mb-4 text-gray-800">{research.completed.title}</h2>
                 <ul className="space-y-3">
                   {research.completed.items.map((item, index) => (
                     <li 
                       key={index} 
-                      className="pl-6 relative text-gray-200 before:content-[''] before:absolute before:left-0 before:top-3 before:w-3 before:h-3 before:bg-gray-500 before:rounded-full"
+                      className="pl-6 relative text-gray-700 before:content-[''] before:absolute before:left-0 before:top-3 before:w-2 before:h-2 before:bg-blue-700 before:rounded-full"
                     >
                       {item}
                     </li>
@@ -347,14 +348,14 @@ const CoepActivitiesPage = () => {
               </div>
             </div>
 
-            <div className="bg-gray-800 bg-opacity-70 rounded-xl shadow-lg overflow-hidden transition-all duration-300 hover:shadow-white/10 hover:shadow-xl border-t-4 border-gray-600 border border-gray-700">
+            <div className="bg-white rounded-lg shadow-sm overflow-hidden border-l-4 border-blue-700">
               <div className="p-6">
-                <h2 className="text-2xl font-bold mb-4 text-white">{research.recent.title}</h2>
+                <h2 className="text-xl font-semibold mb-4 text-gray-800">{research.recent.title}</h2>
                 <ul className="space-y-3">
                   {research.recent.items.map((item, index) => (
                     <li 
                       key={index} 
-                      className="pl-6 relative text-gray-200 before:content-[''] before:absolute before:left-0 before:top-3 before:w-3 before:h-3 before:bg-gray-500 before:rounded-full"
+                      className="pl-6 relative text-gray-700 before:content-[''] before:absolute before:left-0 before:top-3 before:w-2 before:h-2 before:bg-blue-700 before:rounded-full"
                     >
                       {item}
                     </li>
@@ -363,14 +364,14 @@ const CoepActivitiesPage = () => {
               </div>
             </div>
 
-            <div className="bg-gray-800 bg-opacity-70 rounded-xl shadow-lg overflow-hidden transition-all duration-300 hover:shadow-white/10 hover:shadow-xl border-t-4 border-gray-500 border border-gray-700">
+            <div className="bg-white rounded-lg shadow-sm overflow-hidden border-l-4 border-blue-600">
               <div className="p-6">
-                <h2 className="text-2xl font-bold mb-4 text-white">{research.equipment.title}</h2>
+                <h2 className="text-xl font-semibold mb-4 text-gray-800">{research.equipment.title}</h2>
                 <ul className="space-y-3">
                   {research.equipment.items.map((item, index) => (
                     <li 
                       key={index} 
-                      className="pl-6 relative text-gray-200 before:content-[''] before:absolute before:left-0 before:top-3 before:w-3 before:h-3 before:bg-gray-500 before:rounded-full"
+                      className="pl-6 relative text-gray-700 before:content-[''] before:absolute before:left-0 before:top-3 before:w-2 before:h-2 before:bg-blue-600 before:rounded-full"
                     >
                       {item}
                     </li>
@@ -384,14 +385,14 @@ const CoepActivitiesPage = () => {
         {/* Academic Contributions Tab */}
         {activeTab === 'academic' && (
           <div className="space-y-6">
-            <div className="bg-gray-800 bg-opacity-70 rounded-xl shadow-lg overflow-hidden transition-all duration-300 hover:shadow-white/10 hover:shadow-xl border-t-4 border-gray-600 border border-gray-700">
+            <div className="bg-white rounded-lg shadow-sm overflow-hidden border-l-4 border-blue-700">
               <div className="p-6">
-                <h2 className="text-2xl font-bold mb-4 text-white">{academic.curriculum.title}</h2>
+                <h2 className="text-xl font-semibold mb-4 text-gray-800">{academic.curriculum.title}</h2>
                 <ul className="space-y-3">
                   {academic.curriculum.items.map((item, index) => (
                     <li 
                       key={index} 
-                      className="pl-6 relative text-gray-200 before:content-[''] before:absolute before:left-0 before:top-3 before:w-3 before:h-3 before:bg-gray-500 before:rounded-full"
+                      className="pl-6 relative text-gray-700 before:content-[''] before:absolute before:left-0 before:top-3 before:w-2 before:h-2 before:bg-blue-700 before:rounded-full"
                     >
                       {item}
                     </li>
@@ -400,28 +401,28 @@ const CoepActivitiesPage = () => {
               </div>
             </div>
 
-            <div className="bg-gray-800 bg-opacity-70 rounded-xl shadow-lg overflow-hidden transition-all duration-300 hover:shadow-white/10 hover:shadow-xl border-t-4 border-gray-500 border border-gray-700">
+            <div className="bg-white rounded-lg shadow-sm overflow-hidden border-l-4 border-blue-600">
               <div className="p-6">
-                <h2 className="text-2xl font-bold mb-4 text-white">{academic.courses.title}</h2>
+                <h2 className="text-xl font-semibold mb-4 text-gray-800">{academic.courses.title}</h2>
                 
-                <h3 className="text-xl font-semibold mb-2 text-gray-300">Undergraduate Courses</h3>
+                <h3 className="text-lg font-medium mb-2 text-gray-700">Undergraduate Courses</h3>
                 <ul className="space-y-3 mb-6">
                   {academic.courses.ug.map((item, index) => (
                     <li 
                       key={index} 
-                      className="pl-6 relative text-gray-200 before:content-[''] before:absolute before:left-0 before:top-3 before:w-3 before:h-3 before:bg-gray-500 before:rounded-full"
+                      className="pl-6 relative text-gray-700 before:content-[''] before:absolute before:left-0 before:top-3 before:w-2 before:h-2 before:bg-blue-600 before:rounded-full"
                     >
                       {item}
                     </li>
                   ))}
                 </ul>
                 
-                <h3 className="text-xl font-semibold mb-2 text-gray-300">Postgraduate Courses</h3>
+                <h3 className="text-lg font-medium mb-2 text-gray-700">Postgraduate Courses</h3>
                 <ul className="space-y-3">
                   {academic.courses.pg.map((item, index) => (
                     <li 
                       key={index} 
-                      className="pl-6 relative text-gray-200 before:content-[''] before:absolute before:left-0 before:top-3 before:w-3 before:h-3 before:bg-gray-500 before:rounded-full"
+                      className="pl-6 relative text-gray-700 before:content-[''] before:absolute before:left-0 before:top-3 before:w-2 before:h-2 before:bg-blue-600 before:rounded-full"
                     >
                       {item}
                     </li>
@@ -430,14 +431,14 @@ const CoepActivitiesPage = () => {
               </div>
             </div>
 
-            <div className="bg-gray-800 bg-opacity-70 rounded-xl shadow-lg overflow-hidden transition-all duration-300 hover:shadow-white/10 hover:shadow-xl border-t-4 border-gray-600 border border-gray-700">
+            <div className="bg-white rounded-lg shadow-sm overflow-hidden border-l-4 border-blue-700">
               <div className="p-6">
-                <h2 className="text-2xl font-bold mb-4 text-white">{academic.events.title}</h2>
+                <h2 className="text-xl font-semibold mb-4 text-gray-800">{academic.events.title}</h2>
                 <ul className="space-y-3">
                   {academic.events.items.map((item, index) => (
                     <li 
                       key={index} 
-                      className="pl-6 relative text-gray-200 before:content-[''] before:absolute before:left-0 before:top-3 before:w-3 before:h-3 before:bg-gray-500 before:rounded-full"
+                      className="pl-6 relative text-gray-700 before:content-[''] before:absolute before:left-0 before:top-3 before:w-2 before:h-2 before:bg-blue-700 before:rounded-full"
                     >
                       {item}
                     </li>
@@ -451,14 +452,14 @@ const CoepActivitiesPage = () => {
         {/* Patents Tab */}
         {activeTab === 'patents' && (
           <div className="space-y-6">
-            <div className="bg-gray-800 bg-opacity-70 rounded-xl shadow-lg overflow-hidden transition-all duration-300 hover:shadow-white/10 hover:shadow-xl border-t-4 border-gray-600 border border-gray-700">
+            <div className="bg-white rounded-lg shadow-sm overflow-hidden border-l-4 border-blue-700">
               <div className="p-6">
-                <h2 className="text-2xl font-bold mb-4 text-white">{patents.awarded.title}</h2>
+                <h2 className="text-xl font-semibold mb-4 text-gray-800">{patents.awarded.title}</h2>
                 <ul className="space-y-3">
                   {patents.awarded.items.map((item, index) => (
                     <li 
                       key={index} 
-                      className="pl-6 relative text-gray-200 before:content-[''] before:absolute before:left-0 before:top-3 before:w-3 before:h-3 before:bg-gray-500 before:rounded-full"
+                      className="pl-6 relative text-gray-700 before:content-[''] before:absolute before:left-0 before:top-3 before:w-2 before:h-2 before:bg-blue-700 before:rounded-full"
                     >
                       {item}
                     </li>
@@ -467,14 +468,14 @@ const CoepActivitiesPage = () => {
               </div>
             </div>
 
-            <div className="bg-gray-800 bg-opacity-70 rounded-xl shadow-lg overflow-hidden transition-all duration-300 hover:shadow-white/10 hover:shadow-xl border-t-4 border-gray-500 border border-gray-700">
+            <div className="bg-white rounded-lg shadow-sm overflow-hidden border-l-4 border-blue-600">
               <div className="p-6">
-                <h2 className="text-2xl font-bold mb-4 text-white">{patents.filed.title}</h2>
+                <h2 className="text-xl font-semibold mb-4 text-gray-800">{patents.filed.title}</h2>
                 <ul className="space-y-3">
                   {patents.filed.items.map((item, index) => (
                     <li 
                       key={index} 
-                      className="pl-6 relative text-gray-200 before:content-[''] before:absolute before:left-0 before:top-3 before:w-3 before:h-3 before:bg-gray-500 before:rounded-full"
+                      className="pl-6 relative text-gray-700 before:content-[''] before:absolute before:left-0 before:top-3 before:w-2 before:h-2 before:bg-blue-600 before:rounded-full"
                     >
                       {item}
                     </li>
@@ -487,14 +488,14 @@ const CoepActivitiesPage = () => {
 
         {/* Industry Partnerships Tab */}
         {activeTab === 'mous' && (
-          <div className="bg-gray-800 bg-opacity-70 rounded-xl shadow-lg overflow-hidden transition-all duration-300 hover:shadow-white/10 hover:shadow-xl border-t-4 border-gray-600 border border-gray-700">
+          <div className="bg-white rounded-lg shadow-sm overflow-hidden border-l-4 border-blue-700">
             <div className="p-6">
-              <h2 className="text-2xl font-bold mb-6 text-white">MoUs with Industries Established at COEP</h2>
+              <h2 className="text-xl font-semibold mb-6 text-gray-800">MoUs with Industries Established at COEP</h2>
               <ul className="space-y-3">
                 {mous.map((mou, index) => (
                   <li 
                     key={index} 
-                    className="pl-6 relative text-gray-200 before:content-[''] before:absolute before:left-0 before:top-3 before:w-3 before:h-3 before:bg-gray-500 before:rounded-full"
+                    className="pl-6 relative text-gray-700 before:content-[''] before:absolute before:left-0 before:top-3 before:w-2 before:h-2 before:bg-blue-700 before:rounded-full"
                   >
                     {mou}
                   </li>
